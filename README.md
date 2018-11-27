@@ -4,7 +4,7 @@ Hack to check answers for NYTimes Spelling Bee Game.
 2) Convert line endings to UNIX style with `sed`: `sed -i.bak 's/\r$//' words_alpha.txt` See: https://askubuntu.com/questions/803162/how-to-change-windows-line-ending-to-unix-version
 3) `grep` the file:
 
-`cat words_alpha.txt | grep -x '.\{4,\}' | grep -Eo "^[UuDGMOPRdgmopr]*[Uu]+[UuDGMOPRdgmopr]*$"`
+`cat words_alpha.txt | grep -x '.\{4,\}' | grep -Eo "^[udgmopr]*[u]+[udgmopr]*$"`
 
 Where the first `grep` command filters min word length of four.
 Second `grep` command searches for lines matching the pattern:
