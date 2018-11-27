@@ -1,3 +1,17 @@
+Hack to check answers for NYTimes Spelling Bee Game.
+
+1) Clone this repository
+2) Convert line endings to UNIX style with `sed`: `sed -i.bak 's/\r$//' words_alpha.txt` See: https://askubuntu.com/questions/803162/how-to-change-windows-line-ending-to-unix-version
+3) `grep` the file:
+
+`cat words_alpha.txt | grep -x '.\{4,\}' | grep -Eo "^[UuDGMOPRdgmopr]*[Uu]+[UuDGMOPRdgmopr]*$"`
+
+Where the first `grep` command filters min word length of four.
+Second `grep` command searches for lines matching the pattern:
+- 0 or more entries of all allowable letters.
+- At least one entry of the required letter.
+- 0 or more entries of all alllowable letters.
+
 english-words
 =============
 
